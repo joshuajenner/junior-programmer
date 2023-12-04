@@ -52,7 +52,7 @@ public class SpawnManagerX : MonoBehaviour
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             GameObject newEnemy = Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
-            newEnemy.GetComponent<Enemy>().speed = 10;
+            newEnemy.GetComponent<EnemyX>().speed = waveCount * 10;
         }
 
         waveCount++;
