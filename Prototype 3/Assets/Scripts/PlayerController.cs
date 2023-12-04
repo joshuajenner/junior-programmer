@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour
     private bool isOnGround = true;
     private bool canDoubleJump = true;
 
-    public bool gameOver;
+    public bool gameOver = true;
 
     public ParticleSystem explosionParticle;
     public ParticleSystem dirtParticle;
@@ -76,7 +76,7 @@ public class PlayerController : MonoBehaviour
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Game Over!");
-            Debug.Log("Score:"  + score);
+            Debug.Log("Score:"  + score/100);
             playerAudio.PlayOneShot(crashSound, 1.0f);
             gameOver = true;
             explosionParticle.Play();
