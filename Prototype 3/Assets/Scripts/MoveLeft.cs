@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class MoveLeft : MonoBehaviour
 {
-    private float speed = 15;
+    private float currentSpeed = 15f;
+    private float dashSpeed = 30f;
+    private float baseSpeed = 15f;
     private float leftBound = -15;
     private PlayerController playerControllerScript;
 
@@ -15,9 +17,18 @@ public class MoveLeft : MonoBehaviour
 
     void Update()
     {
+        if (playerControllerScript.isDashing)
+        {
+            currentSpeed = dashSpeed;
+        }
+        else
+        {
+            currentSpeed = baseSpeed;
+        }
+
         if (playerControllerScript.gameOver == false)
         {
-            transform.Translate(Vector3.left * Time.deltaTime * speed);
+            transform.Translate(Vector3.left * Time.deltaTime * currentSpeed);
         }
 
         if (transform.position.x < leftBound && gameObject.CompareTag("Obstacle"))

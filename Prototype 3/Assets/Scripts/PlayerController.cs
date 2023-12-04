@@ -8,10 +8,14 @@ public class PlayerController : MonoBehaviour
     private Animator playerAnim;
     private AudioSource playerAudio;
 
+    public bool isDashing = false;
+    private int score = 0;
+
     public float jumpForce;
     public float gravityModifier;
 
     private bool isOnGround = true;
+    private bool canDoubleJump = true;
 
     public bool gameOver;
 
@@ -36,9 +40,29 @@ public class PlayerController : MonoBehaviour
         {
             playerAudio.PlayOneShot(jumpSound, 1.0f);
             playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isOnGround= false;
+            isOnGround = false;
             playerAnim.SetTrigger("Jump_trig");
             dirtParticle.Stop();
+        }
+        else if (Input.GetKeyDown(KeyCode.Space) && canDoubleJump)
+        {
+            playerAudio.PlayOneShot(jumpSound, 1.0f);
+            playerRb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            playerAnim.SetTrigger("Jump_trig");
+            canDoubleJump = false;
+        }
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            isDashing = true;
+            playerAnim.speed = 1.5f;
+            score += 2;
+        }
+        else
+        {
+            isDashing = false;
+            playerAnim.speed = 1f;
+            score += 1;
         }
     }
     private void OnCollisionEnter(Collision collision)
@@ -47,10 +71,12 @@ public class PlayerController : MonoBehaviour
         {
             isOnGround = true;
             dirtParticle.Play();
+            canDoubleJump = true;
         }
         else if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Game Over!");
+            Debug.Log("Score:"  + score);
             playerAudio.PlayOneShot(crashSound, 1.0f);
             gameOver = true;
             explosionParticle.Play();
