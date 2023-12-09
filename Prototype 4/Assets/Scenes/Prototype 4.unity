@@ -171,8 +171,9 @@ MonoBehaviour:
   - {fileID: 5995499880718033382, guid: 336e23ac3f6fd134187887423f128806, type: 3}
   - {fileID: 6200466338913488696, guid: aab9654364e15da4a9401b83c53cb2ba, type: 3}
   powerupPrefabs:
-  - {fileID: 5556840395899376179, guid: b31d2991292b25b4cae357a80de12149, type: 3}
+  - {fileID: 178452, guid: ceb1bef3d4abc9344b89436369737113, type: 3}
   - {fileID: 926731649984661335, guid: 4b7c236a6b6b8754ab297c9a37c02978, type: 3}
+  - {fileID: 5556840395899376179, guid: b31d2991292b25b4cae357a80de12149, type: 3}
   enemyCount: 0
   waveNumber: 0
 --- !u!1001 &245963551
@@ -338,6 +339,11 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1742899641471652, guid: 923deea38dc6a8843b15db7638919c1e, type: 3}
   m_PrefabInstance: {fileID: 2075812144}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1180612000 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1758629138285362, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+  m_PrefabInstance: {fileID: 1939619774}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1211016355
 GameObject:
@@ -651,6 +657,83 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 150
+--- !u!1001 &1939619774
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1758629138285362, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_Name
+      value: SmashPowerup
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758629138285362, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4165187268090244, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 11a653b9169986c4f9436a3002fb4516, type: 3}
 --- !u!1001 &2075812144
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -808,12 +891,28 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
+      propertyPath: hangTime
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
+      propertyPath: smashSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
       propertyPath: rocketPrefab
       value: 
       objectReference: {fileID: 298280902920908474, guid: 405b25b55e51d7649a84c38508c1f736, type: 3}
     - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
       propertyPath: currentPowerUp
-      value: 2
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
+      propertyPath: explosionForce
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
+      propertyPath: explosionRadius
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
       propertyPath: powerupIndicator
@@ -827,6 +926,10 @@ PrefabInstance:
       propertyPath: shootPowerupIndicator
       value: 
       objectReference: {fileID: 971803292}
+    - target: {fileID: 4689871275529087609, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
+      propertyPath: smashPowerupIndicator
+      value: 
+      objectReference: {fileID: 1180612000}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed9370bb054f4d441a3478f4f0a7d6bb, type: 3}
 --- !u!1001 &7305732181041295649
