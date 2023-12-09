@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     void LaunchRockets()
     {
-        foreach (var enemy in FindObjectsOfType<Enemy>())
+        foreach (var enemy in GameObject.FindGameObjectsWithTag("Enemy"))
         {
             tmpRocket = Instantiate(rocketPrefab, transform.position + Vector3.up,
             Quaternion.identity);
