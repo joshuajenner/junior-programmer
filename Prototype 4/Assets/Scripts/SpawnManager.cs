@@ -8,18 +8,17 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] powerupPrefabs;
     private float spawnRange = 9f;
 
-    public int enemyCount;
+    public int enemyCount = 0;
     public int waveNumber = 0;
 
     void Start()
     {
         SpawnEnemyWave(waveNumber);
-        SpawnPowerup();
     }
 
     private void Update()
     {
-        enemyCount = FindObjectsOfType<Enemy>().Length;
+        enemyCount = GameObject.FindGameObjectsWithTag("Enemy").Length;
         if (enemyCount == 0)
         {
             waveNumber++;
