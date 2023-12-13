@@ -6,14 +6,18 @@ public class SpawnManager : MonoBehaviour
 {
     public GameObject[] enemyPrefabs;
     public GameObject[] powerupPrefabs;
+    public GameObject bossPrefab;
     private float spawnRange = 9f;
 
     public int enemyCount = 0;
     public int waveNumber = 0;
+    public int bossWaveEvery = 0;
 
     void Start()
     {
+        waveNumber = 1;
         SpawnEnemyWave(waveNumber);
+        SpawnPowerup();
     }
 
     private void Update()
@@ -43,6 +47,11 @@ public class SpawnManager : MonoBehaviour
 
     private void SpawnEnemyWave(int enemiesToSpawn)
     {
+        if ((waveNumber % bossWaveEvery) == 0)
+        {
+            Instantiate(bossPrefab);
+        }
+
         for (int i = 0; i < enemiesToSpawn; i++)
         {
             int index = Random.Range(0, enemyPrefabs.Length);

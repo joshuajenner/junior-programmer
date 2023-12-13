@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2 : MonoBehaviour
+public class Mini : MonoBehaviour
 {
     private Rigidbody enemyRb;
 
@@ -12,7 +12,7 @@ public class Enemy2 : MonoBehaviour
     void Start()
     {
         enemyRb = GetComponent<Rigidbody>();
-        moveDirection = -transform.position.normalized;
+        StartCoroutine(RemoveSelf());
     }
 
     public void SetDirection(Vector3 targetVector)
@@ -28,5 +28,11 @@ public class Enemy2 : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    IEnumerator RemoveSelf()
+    {
+        yield return new WaitForSeconds(5f);
+        Destroy(gameObject);
     }
 }
