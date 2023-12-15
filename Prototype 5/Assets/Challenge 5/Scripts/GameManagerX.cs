@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class GameManagerX : MonoBehaviour
 {
+    public TextMeshProUGUI timeText;
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI gameOverText;
     public GameObject titleScreen;
@@ -15,6 +16,7 @@ public class GameManagerX : MonoBehaviour
     public List<GameObject> targetPrefabs;
 
     private int score;
+    private int time = 60;
     private float spawnRate = 1.5f;
     public bool isGameActive;
 
@@ -23,14 +25,25 @@ public class GameManagerX : MonoBehaviour
     private float minValueY = -3.75f; //  y value of the center of the bottom-most square
     
     // Start the game, remove title screen, reset score, and adjust spawnRate based on difficulty button clicked
-    public void StartGame()
+    public void StartGame(int newDifficulty)
     {
-        spawnRate /= 5;
+        spawnRate /= newDifficulty;
         isGameActive = true;
         StartCoroutine(SpawnTarget());
         score = 0;
         UpdateScore(0);
         titleScreen.SetActive(false);
+        InvokeRepeating("TimerCountdown", 0f, 1f);
+    }
+
+    private void TimerCountdown()
+    {
+        time--;
+        timeText.text = "Time: " + time;
+        if (time <= 0)
+        {
+            GameOver();
+        }
     }
 
     // While game is active spawn a random target
@@ -70,14 +83,14 @@ public class GameManagerX : MonoBehaviour
     public void UpdateScore(int scoreToAdd)
     {
         score += scoreToAdd;
-        scoreText.text = "score";
+        scoreText.text = "Score: " + score;
     }
 
     // Stop game, bring up game over text and restart button
     public void GameOver()
     {
         gameOverText.gameObject.SetActive(true);
-        restartButton.gameObject.SetActive(false);
+        restartButton.gameObject.SetActive(true);
         isGameActive = false;
     }
 
