@@ -6,13 +6,20 @@ using UnityEngine.InputSystem;
 
 public class PlayerController: MonoBehaviour
 {
+    private Rigidbody playerRb;
+
     public FollowPlayer cameraScript;
 
-    [SerializeField] private float speed = 20f;
+    [SerializeField] private float horsePower = 20f;
     [SerializeField] private float turnSpeed;
 
     private float horizontalInput;
     private float forwardInput;
+
+    private void Start()
+    {
+        playerRb = GetComponent<Rigidbody>();
+    }
 
     public void OnMove(InputAction.CallbackContext context)
     {
@@ -31,9 +38,11 @@ public class PlayerController: MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
-        transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
+        //transform.Translate(Vector3.forward * Time.deltaTime * speed * forwardInput);
         transform.Rotate(Vector3.up, Time.deltaTime * turnSpeed * horizontalInput);
+        playerRb.AddRelativeForce(Vector3.forward * forwardInput * horsePower);
+        Debug.Log(Vector3.forward * forwardInput * horsePower);
     }
 }
