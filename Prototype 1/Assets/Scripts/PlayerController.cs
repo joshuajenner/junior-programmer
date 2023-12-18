@@ -8,8 +8,8 @@ public class PlayerController: MonoBehaviour
 {
     public FollowPlayer cameraScript;
 
-    public float speed = 20f;
-    public float turnSpeed;
+    [SerializeField] private float speed = 20f;
+    [SerializeField] private float turnSpeed;
 
     private float horizontalInput;
     private float forwardInput;

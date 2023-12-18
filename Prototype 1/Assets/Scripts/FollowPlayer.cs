@@ -6,9 +6,9 @@ public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
     private Vector3 currentOffset = new Vector3(0, 8, -8);
-    private Vector3 frontOffset = new Vector3(0, 2, 0.5f);
-    private Vector3 backOffset = new Vector3(0, 8, -8);
-    private Vector3 backRotation = new Vector3(30, 0, 0);
+    [SerializeField] private Vector3 frontOffset = new Vector3(0, 2, 0.5f);
+    [SerializeField] private Vector3 backOffset = new Vector3(0, 8, -8);
+    [SerializeField] private Vector3 backRotation = new Vector3(30, 0, 0);
     
 
     private bool isCameraOnBack = true;
