@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.IO;
+using TMPro;
 
 public class MainManager : MonoBehaviour
 {
@@ -18,10 +20,24 @@ public class MainManager : MonoBehaviour
     
     private bool m_GameOver = false;
 
-    
+    private int highScore;
+    public TextMeshProUGUI highScoreLabel;
+    public TextMeshProUGUI highScoreName;
+
+    [System.Serializable]
+    class SaveData
+    {
+        public string Name;
+        public int HighScore;
+    }
+
+
+
     // Start is called before the first frame update
     void Start()
     {
+        LoadHighScore();
+
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -72,5 +88,39 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        if (m_Points > highScore)
+        {
+            highScore = m_Points;
+            SaveHighScore();
+            highScoreLabel.text = highScore.ToString();
+            highScoreName.text = PlayerDataManager.playerName;
+        }
+    }
+
+
+    public void SaveHighScore()
+    {
+        SaveData data = new SaveData();
+        data.HighScore = highScore;
+        data.Name = PlayerDataManager.playerName;
+
+        string json = JsonUtility.ToJson(data);
+
+        File.WriteAllText(Application.persistentDataPath + "/highscores.json", json);
+    }
+
+    public void LoadHighScore()
+    {
+        string path = Application.persistentDataPath + "/highscores.json";
+        if (File.Exists(path))
+        {
+            string json = File.ReadAllText(path);
+            SaveData data = JsonUtility.FromJson<SaveData>(json);
+
+            highScore = data.HighScore;
+            highScoreLabel.text = highScore.ToString();
+            highScoreName.text = data.Name;
+        }
     }
 }
